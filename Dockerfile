@@ -1,11 +1,13 @@
-FROM openjdk:11
+FROM java:8-jdk-alpine
 
-MAINTAINER "Ashok & Raj"
+MAINTAINER "Sandeep Dhamal"
 
-COPY target/spring-boot-docker-app.jar  /usr/app/
+COPY ./target/SpringBootTest-0.0.1-SNAPSHOT.jar  /usr/app/
 
 WORKDIR /usr/app/
 
+RUN -c 'touch  SpringBootTest-0.0.1-SNAPSHOT.jar'
+
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "spring-boot-docker-app.jar"]
+ENTRYPOINT ["java", "-jar", "SpringBootTest-0.0.1-SNAPSHOT.jar"]
